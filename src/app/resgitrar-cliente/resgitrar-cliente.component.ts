@@ -1,27 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../cliente';
-import { ClienteService } from '../cliente.service';
 import { Router } from '@angular/router';
+import { ClienteService } from '../cliente.service';
 
 @Component({
-  selector: 'app-lista-clientes',
-  templateUrl: './lista-clientes.component.html',
-  styleUrls: ['./lista-clientes.component.css']
+  selector: 'app-resgitrar-cliente',
+  templateUrl: './resgitrar-cliente.component.html',
+  styleUrls: ['./resgitrar-cliente.component.css']
 })
-export class ListaClientesComponent implements OnInit{
+export class ResgitrarClienteComponent implements OnInit {
 
-  clientes:Cliente[];
-  cliente:Cliente = new Cliente();
+  cliente : Cliente = new Cliente();
+
   constructor(private clienteServicio:ClienteService, private router:Router){}
 
   ngOnInit(): void {
-    this.obtenerClientes();
-  }
-
-  private obtenerClientes(){
-    this.clienteServicio.obtenerListaDeClientes().subscribe(dato => {
-      this.clientes = dato;
-    });
+    console.log(this.cliente);
   }
 
   guardarCliente(){

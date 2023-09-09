@@ -1,0 +1,39 @@
+<div class="modal fade" id="crearCliente" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title">Formulario para crear un cliente</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <form (ngSubmit)="guardarCliente()">
+                  <div class="form-group">
+                      <label>Nombre</label>
+                      <input type="text" name="txtNombre" class="form-control" id="txtNombre" [(ngModel)]="cliente.businessId">
+                  </div>
+                  <div class="form-group">
+                      <label>Telefono</label>
+                      <input type="text" name="txtTelefono" class="form-control" id="txtTelefono" [(ngModel)]="cliente.phone">
+                  </div>
+                  <div class="form-group">
+                      <label>Email</label>
+                      <input type="text" name="txtEmail" class="form-control" id="txtEmail" [(ngModel)]="cliente.email">
+                  </div>
+                  <div class="form-group">
+                      <label>Fecha Inicio</label>
+                      <input type="date" name="txtFechaInicio" class="form-control" id="txtFechaInicio" [(ngModel)]="cliente.startDate">
+                  </div>
+                  <div class="form-group">
+                      <label>Fecha Fin</label>
+                      <input type="date" name="txtFechaFin" class="form-control" id="txtFechaFin" [(ngModel)]="cliente.endDate">
+                  </div>
+                  <br>
+                  <button type="submit" name="accion" value="Agregar" class="btn btn-primary">Agregar</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Cancelar</button>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+
+

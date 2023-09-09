@@ -17,4 +17,9 @@ export class ClienteService {
   obtenerListaDeClientes():Observable<Cliente[]>{
     return this.httpClient.get<Cliente[]>(`${this.baseURL}`)
   }
+
+  /**Este metodo sirve para crear un empleado */
+  registrarCliente(cliente:Cliente):Observable<Object>{
+    return this.httpClient.post(`${this.baseURL}`,cliente);
+  }
 }
