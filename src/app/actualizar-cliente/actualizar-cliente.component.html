@@ -5,7 +5,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form (ngSubmit)="onSubmit()">
+        <form (ngSubmit)="actualizarCliente()">
           <div class="form-group">
             <label>Nombre</label>
             <input type="text" name="txtNombre" class="form-control" id="txtNombre" [(ngModel)]="cliente.businessId">

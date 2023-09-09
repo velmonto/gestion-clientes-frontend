@@ -1,3 +1,5 @@
+import { Time } from "@angular/common";
+
 export class Cliente {
 
   id:number;
@@ -5,6 +7,6 @@ export class Cliente {
   businessId:String;
   email:String;
   phone:String;
-  startDate:String;
-  endDate:String;
+  startDate:Time;
+  endDate:Time;
 }

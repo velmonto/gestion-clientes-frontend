@@ -3,6 +3,7 @@ import { Cliente } from '../cliente';
 import { ClienteService } from '../cliente.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-lista-clientes',
   templateUrl: './lista-clientes.component.html',
@@ -24,13 +25,4 @@ export class ListaClientesComponent implements OnInit{
     });
   }
 
-  guardarCliente(){
-    this.clienteServicio.registrarCliente(this.cliente).subscribe(dato =>{
-      console.log(dato);
-    }, error => console.log(error));
-  }
-
-  irALaListaDeClientes(){
-    this.router.navigate(['/clientes']);
-  }
 }

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Cliente } from '../cliente';
 import { Router } from '@angular/router';
 import { ClienteService } from '../cliente.service';
+
 
 @Component({
   selector: 'app-resgitrar-cliente',
@@ -10,21 +11,36 @@ import { ClienteService } from '../cliente.service';
 })
 export class ResgitrarClienteComponent implements OnInit {
 
-  cliente : Cliente = new Cliente();
+  clientes:Cliente[];
+  cliente:Cliente = new Cliente();
+  
 
   constructor(private clienteServicio:ClienteService, private router:Router){}
 
   ngOnInit(): void {
-    console.log(this.cliente);
+    this.obtenerClientes();
+  }
+
+  private obtenerClientes(){
+    this.clienteServicio.obtenerListaDeClientes().subscribe(dato => {
+      this.clientes = dato;
+    });
   }
 
   guardarCliente(){
     this.clienteServicio.registrarCliente(this.cliente).subscribe(dato =>{
-      console.log(dato);
+      this.clearCliente();      
     }, error => console.log(error));
+    window.location.reload();
   }
 
-  irALaListaDeClientes(){
+  clearCliente(){
+    this.cliente = new Cliente();
+  }
+
+  onSubmit(){
+    this.guardarCliente();
+    this.obtenerClientes();
     this.router.navigate(['/clientes']);
   }
 }

@@ -18,8 +18,13 @@ export class ClienteService {
     return this.httpClient.get<Cliente[]>(`${this.baseURL}`)
   }
 
-  /**Este metodo sirve para crear un empleado */
+  /**Este metodo sirve para crear un cliente */
   registrarCliente(cliente:Cliente):Observable<Object>{
+    return this.httpClient.post(`${this.baseURL}`,cliente);
+  }
+
+  /**Este metodo sirve para actualizar un cliente */
+  actualizarCliente(cliente:Cliente):Observable<Object>{
     return this.httpClient.post(`${this.baseURL}`,cliente);
   }
 }
