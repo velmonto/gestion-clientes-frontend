@@ -1,0 +1,23 @@
+<h2>Lista de Clientes</h2>
+<table class="table table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th>Shared Key</th>
+      <th>Business ID</th>
+      <th>E-mail</th>
+      <th>Phone</th>
+      <th>Data Added</th>
+      <th><a><i class="bi bi-pencil-fill"></i></a></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cliente of clientes">
+      <th>{{cliente.sharedKey}}</th>
+      <th>{{cliente.businessId}}</th>
+      <th>{{cliente.email}}</th>
+      <th>{{cliente.phone}}</th>
+      <th>{{cliente.startDate}}</th>
+      <th><a><i class="bi bi-pencil-fill bs-danger"></i></a></th>
+    </tr>
+  </tbody>
+</table>
