@@ -8,7 +8,7 @@ const routes : Routes = [
   {path: 'clientes',component:ListaClientesComponent},
   {path: '',redirectTo:'clientes',pathMatch:'full'},
   {path: 'resgistrar-cliente',component: ResgitrarClienteComponent},
-  {path: 'actualizar-cliente/cliente_id', component: ActualizarClienteComponent}
+  {path: 'actualizar-cliente/:id', component: ActualizarClienteComponent},
 ];
 
 @NgModule({

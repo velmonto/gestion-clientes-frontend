@@ -2,6 +2,7 @@ import { Component, OnInit, Output } from '@angular/core';
 import { Cliente } from '../cliente';
 import { Router } from '@angular/router';
 import { ClienteService } from '../cliente.service';
+import swal from 'sweetalert2';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class ResgitrarClienteComponent implements OnInit {
 
   clientes:Cliente[];
   cliente:Cliente = new Cliente();
-  
+
 
   constructor(private clienteServicio:ClienteService, private router:Router){}
 
@@ -29,7 +30,7 @@ export class ResgitrarClienteComponent implements OnInit {
 
   guardarCliente(){
     this.clienteServicio.registrarCliente(this.cliente).subscribe(dato =>{
-      this.clearCliente();      
+      this.clearCliente();
     }, error => console.log(error));
     window.location.reload();
   }
@@ -41,6 +42,6 @@ export class ResgitrarClienteComponent implements OnInit {
   onSubmit(){
     this.guardarCliente();
     this.obtenerClientes();
-    this.router.navigate(['/clientes']);
+    this.router.navigate(['clientes']);
   }
 }

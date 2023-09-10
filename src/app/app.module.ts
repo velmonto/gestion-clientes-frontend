@@ -7,13 +7,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { ResgitrarClienteComponent } from './resgitrar-cliente/resgitrar-cliente.component';
 import { FormsModule } from '@angular/forms';
 import { ActualizarClienteComponent } from './actualizar-cliente/actualizar-cliente.component';
+import { ClienteDetallesComponent } from './cliente-detalles/cliente-detalles.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListaClientesComponent,
     ResgitrarClienteComponent,
-    ActualizarClienteComponent
+    ActualizarClienteComponent,
+    ClienteDetallesComponent
   ],
   imports: [
     BrowserModule,

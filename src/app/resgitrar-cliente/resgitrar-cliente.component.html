@@ -5,18 +5,48 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form (ngSubmit)="onSubmit()">
+        <form (ngSubmit)="onSubmit()" #clienteForm = "ngForm">
           <div class="form-group">
             <label>Nombre</label>
-            <input type="text" name="txtNombre" class="form-control" id="txtNombre" [(ngModel)]="cliente.businessId">
+            <input type="text" class="form-control" id="nombre" [(ngModel)]="cliente.businessId" name="nombre" required placeholder="Ingrese primer nombre y primer apellido"
+            minlength="4" maxlength="50" #nombre = "ngModel">
+            <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+              <div *ngIf="nombre?.errors?.['required']">
+                Ingrese su nombre y su apellido por favor
+              </div>
+              <div *ngIf="nombre?.errors?.['minlength']">
+                El nombre debe contener minimo 4 caracteres
+              </div>
+              <div *ngIf="nombre?.errors?.['maxlength']">
+                El nombre y el apellido deben ser maximo de 50 carcateres
+              </div>
+            </div>
           </div>
           <div class="form-group">
             <label>Telefono</label>
-            <input type="text" name="txtTelefono" class="form-control" id="txtTelefono" [(ngModel)]="cliente.phone">
+            <input type="text" name="telefono" class="form-control" id="telefono" [(ngModel)]="cliente.phone"  required placeholder="Ingrese su telefono"
+            maxlength="10" #telefono = "ngModel">
+            <div class="alert alert-danger" *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
+              <div *ngIf="telefono?.errors?.['required']">
+                Ingrese su telefono por favor
+              </div>
+              <div *ngIf="telefono?.errors?.['maxlength']">
+                El debe ser maximo de 10 carcateres
+              </div>
+            </div>
           </div>
           <div class="form-group">
             <label>Email</label>
-            <input type="text" name="txtEmail" class="form-control" id="txtEmail" [(ngModel)]="cliente.email">
+            <input type="text" name="email" class="form-control" id="email" [(ngModel)]="cliente.email" required placeholder="Ingrese el correo electronico"
+            pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" #email = "ngModel">
+            <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+              <div *ngIf="email?.errors?.['required']">
+                Ingrese su correo electronico por favor
+              </div>
+              <div *ngIf="email?.errors?.['pattern']">
+                Favor ingrese el correo electronico con el formato correcto
+              </div>
+            </div>
           </div>
           <div class="form-group">
             <label>Fecha Inicio</label>
@@ -28,8 +58,8 @@
             <input type="date" name="txtFechaFin" class="form-control" id="txtFechaFin" [(ngModel)]="cliente.endDate">
           </div>
           <br>
-          <button type="submit" name="accion" value="Agregar" data-bs-dismiss="modal" class="btn btn-primary">Agregar</button>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Cancelar</button>
+          <button type="submit" name="accion" value="Agregar" data-bs-dismiss="modal" class="btn btn-primary" [disabled]="!clienteForm.form.valid">Agregar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close" style="margin-left: 10px;">Cancelar</button>
         </form>
       </div>
     </div>

@@ -24,7 +24,17 @@ export class ClienteService {
   }
 
   /**Este metodo sirve para actualizar un cliente */
-  actualizarCliente(cliente:Cliente):Observable<Object>{
-    return this.httpClient.post(`${this.baseURL}`,cliente);
+  actualizarCliente(id:number,cliente:Cliente):Observable<Object>{
+    return this.httpClient.put(`${this.baseURL}/${id}`,cliente);
+  }
+
+  /**Este metodo sirve para actualizar un cliente */
+  obtenerClientePorId(id:number):Observable<Cliente>{
+    return this.httpClient.get<Cliente>(`${this.baseURL}/${id}`);
+  }
+
+  /**Este metodo sirve para eliminar un cliente */
+  eliminarCliente(id:number):Observable<Object>{
+    return this.httpClient.delete(`${this.baseURL}/${id}`);
   }
 }
