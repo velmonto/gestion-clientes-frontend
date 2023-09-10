@@ -1,27 +1,21 @@
-# GestionClientesFrontend
+# Prueba Alianza
+## _Descripcion_
+Estas pantallas simulan una aplicación con un menú lateral y un espacio de trabajo a la derecha, la
+idea es implementar el link para la opción “Clientes” (las demás opciones no se deben implementar)
+de forma que permita listar los clientes, buscar los clientes (búsqueda simple por shared key, que
+es un campo texto) y crear un nuevo cliente.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
+Se deben agregar las validaciones de pantalla que considere necesarias para los tipos de campos.
+Se debe hacer un servicio rest que permita consultar, buscar por shared key y crear un cliente, la
+implementación no necesita llevar base de datos, esto con el fin de hacer más sencillo el ejercicio
+(pero si le es más practico usar base de datos, lo puede hacer). Las pantallas deben interactuar con
+este servicio rest para cargar y enviar la información.
 
-## Development server
+## _Implementacion_
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Java 18
+- Maven 3.8.4
+- MySql
+- Angular
+- Boostrap 5
+- Junit
