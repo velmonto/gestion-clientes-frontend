@@ -19,3 +19,24 @@ este servicio rest para cargar y enviar la información.
 - Angular
 - Boostrap 5
 - Junit
+
+- ## _Pruebas_
+<p align="center"> 
+  <img src="principal.png">
+</p>
+<br>
+<p align="center"> 
+  <img src="validacionesCrear.png">
+</p>
+<br>
+<p align="center"> 
+  <img src="datos.png">
+</p>
+<br>
+<p align="center"> 
+  <img src="clienteCreado.png">
+</p>
+<br>
+<p align="center"> 
+  <img src="modificarCliente.png">
+</p>
