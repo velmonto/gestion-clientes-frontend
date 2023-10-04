@@ -15,6 +15,7 @@ export class ClienteService {
 
   /** este metodo nos sirve para obtener los clientes */
   obtenerListaDeClientes():Observable<Cliente[]>{
+
     return this.httpClient.get<Cliente[]>(`${this.baseURL}`)
   }
 
@@ -36,5 +37,9 @@ export class ClienteService {
   /**Este metodo sirve para eliminar un cliente */
   eliminarCliente(id:number):Observable<Object>{
     return this.httpClient.delete(`${this.baseURL}/${id}`);
+  }
+
+  getClientBySharedKey(sharedKey:String):Observable<Object>{
+    return this.httpClient.get<Cliente>(`${this.baseURL}/shared/${sharedKey}`);
   }
 }

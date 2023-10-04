@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../cliente';
 import { ClienteService } from '../cliente.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert2';
 
 @Component({
@@ -10,16 +10,24 @@ import swal from 'sweetalert2';
   styleUrls: ['./lista-clientes.component.css'],
 })
 export class ListaClientesComponent implements OnInit {
+
   clientes: Cliente[];
   cliente: Cliente = new Cliente();
+  sharedKey:String;
+
   constructor(
+
     private clienteServicio: ClienteService,
-    private router: Router
+    private router: Router,
+    private route:ActivatedRoute
   ) {}
 
   ngOnInit(): void {
+    this.sharedKey = this.route.snapshot.params['sharedKey'];
     this.obtenerClientes();
   }
+
+
 
   private obtenerClientes() {
     this.clienteServicio.obtenerListaDeClientes().subscribe((dato) => {

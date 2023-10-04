@@ -1,14 +1,19 @@
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#crearCliente">Crear
   Cliente</button>
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#" disabled style="margin-left: 10px;">Exportar</button>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#" disabled
+  style="margin-left: 10px;">Exportar</button>
 
 <br><br>
 <div class="form-group d-flex">
   <div class="col-sm-3">
-    <input type="text" name="CodigoProducto" value="" class="form-control" placeholder="Enter Shared Key">
+    <form >
+      <input type="text" name="CodigoProducto" value="" class="form-control" placeholder="Enter Shared Key" [(ngModel)]="cliente.sharedKey">
+      <input type="submit" name="accion" value="Search" class="btn btn-outline-primary" style="margin-left: 10px;">
+    </form>
   </div>
-    <input type="submit" name="accion" value="Search" class="btn btn-outline-primary" style="margin-left: 10px;">
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#" disabled style="margin-left: 10px;">Advanced Search</button>
+
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#" disabled
+    style="margin-left: 10px;">Advanced Search</button>
 
 </div>
 <div class="modal fade" id="crearCliente" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -42,7 +47,7 @@
       <th>{{cliente.startDate}}</th>
       <th>
 
-        <button (click)="actualizarCliente(cliente.id)" class="btn btn-primary" >
+        <button (click)="actualizarCliente(cliente.id)" class="btn btn-primary">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill"
             viewBox="0 0 16 16">
             <path
